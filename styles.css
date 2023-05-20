@@ -37,7 +37,7 @@ h1{
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 130px;
+    margin-top: 200px;
     perspective: 1000px;
     
   }
@@ -76,3 +76,41 @@ h1{
   .cara-frontal{
     transform: rotateY(180deg)
   }
+
+  .temporizador{
+    top: 15%;
+    right: 30%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.temporizador .bloque{
+    margin: 0% 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.temporizador .bloque div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#E36414; ;
+    font-size: 30px;
+    width: 70px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000 ;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+}
+
+.temporizador .bloque p{
+    font-size: 12px;
+    margin: 0;
+}
+
+
+

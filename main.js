@@ -30,6 +30,9 @@ match();
 function match(){
     if (primeraCarta.dataset.framework==segundaCarta.dataset.framework){
         desabilitarCartas();
+        if(document.querySelectorAll('.voltear').length===cartas.length){
+            clearInterval(intervalid)
+        }
         return;
     }
     noEsMatch();
@@ -64,9 +67,53 @@ function resetear(){
     });
 })();
 
-
-
-
-
-
 cartas.forEach(carta => carta.addEventListener('click', voltearCarta));
+
+let segundos=0;
+let minutos=3;
+let intervalid = setInterval(actualizarTemporizador, 1000);
+
+function actualizarTemporizador(){
+    let TextSegundos;
+
+    if(segundos< 0){
+        segundos=59;
+    }
+
+    if(segundos< 10){
+        TextSegundos= `0${segundos}`
+    }else{
+        TextSegundos=segundos
+    }
+    document.getElementById('segundos').innerHTML = TextSegundos;
+    segundos--;
+   
+    actualizarMins(segundos);
+}
+
+function actualizarMins(segundos){
+    let TextMin;
+    if(segundos==-1 & minutos!=0){
+        setTimeout(()=>{
+            minutos --;
+        }, 500)
+    }else if(segundos==-1 & minutos==0){
+        setTimeout(()=>{
+            minutos= 0;
+            clearInterval(intervalid)
+        }, 500)
+
+    }
+
+    if(segundos< 10){
+        TextMin= `0${minutos}`
+    }else{
+        TextMin=minutos;
+        setInterval(0, 1000)
+        console.log(`El tiempo se ha acabado`)
+    }
+    document.getElementById('minutos').innerHTML = TextMin;
+    
+
+
+}

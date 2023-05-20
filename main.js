@@ -3,6 +3,9 @@ let haVolteadoCarta=false;
 let primeraCarta, segundaCarta;
 let bloquearTablero=false;
 
+function orden(){
+
+}
 
 function voltearCarta() {
 
@@ -54,6 +57,12 @@ function resetear(){
     primeraCarta=null;
     segundaCarta=null;
 }
+ (function cambiarOrdenCartas(){
+   cartas.forEach(carta=>{
+        let posicionRandom=Math.floor(Math.random()*16);
+        carta.style.order=posicionRandom;
+    });
+})();
 
 
 

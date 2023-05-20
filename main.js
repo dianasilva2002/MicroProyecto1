@@ -31,7 +31,7 @@ function match(){
     if (primeraCarta.dataset.framework==segundaCarta.dataset.framework){
         desabilitarCartas();
         if(document.querySelectorAll('.voltear').length===cartas.length){
-            clearInterval(intervalid)
+            clearInterval(iniciarTemporizador)
         }
         return;
     }
@@ -71,48 +71,63 @@ cartas.forEach(carta => carta.addEventListener('click', voltearCarta));
 
 let segundos=0;
 let minutos=3;
-let intervalid = setInterval(actualizarTemporizador, 1000);
+let iniciarTemporizador = setInterval(actualizarTemporizador, 1000);
 
-function actualizarTemporizador(){
-    let TextSegundos;
-
-    if(segundos< 0){
-        segundos=59;
+function actualizarTemporizador() {
+    if (segundos < 0) {
+        segundos = 59;
+        minutos--;
+        if (minutos < 0) {
+            minutos = 0;
+            clearInterval(iniciarTemporizador);
+            console.log('tiempo acabado');
+        }
     }
 
-    if(segundos< 10){
-        TextSegundos= `0${segundos}`
-    }else{
-        TextSegundos=segundos
-    }
+    let TextSegundos = segundos < 10 ? `0${segundos}` : segundos;
+    let TextMinutos = minutos < 10 ? `0${minutos}` : minutos;
+
     document.getElementById('segundos').innerHTML = TextSegundos;
+    document.getElementById('minutos').innerHTML = TextMinutos;
+
     segundos--;
-   
-    actualizarMins(segundos);
 }
-
-function actualizarMins(segundos){
-    let TextMin;
-    if(segundos==-1 & minutos!=0){
-        setTimeout(()=>{
-            minutos --;
-        }, 500)
-    }else if(segundos==-1 & minutos==0){
-        setTimeout(()=>{
-            minutos= 0;
-            clearInterval(intervalid)
-        }, 500)
-
+function actualizarTemporizador() {
+    function actualizarTemporizador() {
+        if (segundos < 0) {
+            segundos = 59;
+            minutos--;
+            if (minutos < 0) {
+                minutos = 0;
+                clearInterval(iniciarTemporizador);
+                console.log('tiempo acabado');
+            }
+        }
+    
+        let TextSegundos = segundos < 10 ? "0" + segundos : segundos;
+        document.getElementById('minutos').innerHTML = minutos;
+        document.getElementById('segundos').innerHTML = TextSegundos;
+        segundos--;
     }
 
-    if(segundos< 10){
-        TextMin= `0${minutos}`
-    }else{
-        TextMin=minutos;
-        setInterval(0, 1000)
-        console.log(`El tiempo se ha acabado`)
-    }
-    document.getElementById('minutos').innerHTML = TextMin;
+const botonReiniciar=document.getElementById('reiniciarPartida');
+botonReiniciar.addEventListener('click',reiniciarPartida);
+
+function reiniciarPartida(){
+    clearInterval(iniciarTemporizador);
+    segundos=0;
+    minutos=3;
+    
+    iniciarTemporizador=setInterval(actualizarTemporizador,1000);
+    document.getElementById('segundos').innerHTML='--';
+    document.getElementById('minutos').innerHTML='--';
+
+    cartas.forEach(carta=>{
+        carta.classList.remove('voltear');
+        carta.addEventListener('click',voltearCarta);
+    });
+    resetear();
+}
     
 
 

@@ -69,11 +69,11 @@
         <img class="cara-trasera" src="imagenes/UNIMET.png" alt="Logo">
     </div>
     <div class="carta-memoria" data-framework="Profesor">
-        <img class="cara-frontal" src="https://www.unimet.edu.ve/prof/20190613_145543.jpg" alt="Profesor">
+        <img class="cara-frontal" src="imagenes/profesor.jpeg" alt="Profesor">
         <img class="cara-trasera" src="imagenes/UNIMET.png" alt="Logo">
     </div>
     <div class="carta-memoria" data-framework="Profesor">
-        <img class="cara-frontal" src="https://www.unimet.edu.ve/prof/20190613_145543.jpg" alt="Profesor">
+        <img class="cara-frontal" src="imagenes/profesor.jpeg" alt="Profesor">
         <img class="cara-trasera" src="imagenes/UNIMET.png" alt="Logo">
     </div>
    
@@ -91,6 +91,50 @@
 <div class="boton">
 <button id="reiniciarPartida">Empezar Partida</button>
 </div>
+<div id="modal" class="modal">
+    <div class="contenido">
+        <h3>Datos</h3>
+        <p>¿Listo para jugar?</p>
+        <form id="formulario">
+            <input type="text" placeholder="Ingrese su nombre" id="nombre">
+            <input type="text" placeholder="Ingrese su apellido" id="apellido">
+            <button class="submit" type="submit">Enviar</button>
+            <span class="cerrar">&times;</span>
+
+        </form> 
+    </div>
+</div>
+
+<div> 
+    <div class="cuadroPuntaje">
+    <div id="pp">Tu puntaje es: </div>
+    <div  class="punto" id="punto">00</div>
+</div>
+<div id="modalPuntaje" class="modalPuntaje">
+    <div class="modalPuntaje-contenido">
+      <span class="cerrarPuntaje">&times;</span>
+      <h2>Puntajes</h2>
+      <table id="tabla-puntajes">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+ 
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 <script src="./main.js"></script>   
 </body>

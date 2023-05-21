@@ -136,7 +136,7 @@ function reiniciarPartida(){
     iniciarTemporizador=setInterval(actualizarTemporizador,1000);
     document.getElementById('segundos').innerHTML='--';
     document.getElementById('minutos').innerHTML='--';
-
+    punto.innerHTML='00'
     cartas.forEach(carta=>{
         carta.classList.remove('voltear');
         carta.addEventListener('click',voltearCarta);
@@ -180,8 +180,11 @@ function mostrarModal() {
 
   function ocultarModal() {
     console.log('7')
-    var modal = document.getElementById("modal").style.display = "none";;
-
+    punto.innerHTML='00'
+    document.getElementById('segundos').innerHTML='--';
+    document.getElementById('minutos').innerHTML='--';
+    document.getElementById("modal").style.display = "none";
+  
     console.log('8')
   
   }

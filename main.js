@@ -171,7 +171,7 @@ function mostrarModal() {
     console.log('1')
     var modal = document.getElementById("modal");
     console.log('2')
-    modal.style.display = "block";
+    modal.style.display = "flex";
     console.log('3')
 
  

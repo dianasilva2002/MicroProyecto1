@@ -85,6 +85,7 @@ function resetear(){
     bloquearTablero=false;
     primeraCarta=null;
     segundaCarta=null;
+  
 }
  (function cambiarOrdenCartas(){
    cartas.forEach(carta=>{
@@ -132,7 +133,10 @@ function reiniciarPartida(){
     clearInterval(iniciarTemporizador);
     segundos=0;
     minutos=3;
-    
+    cartas.forEach(carta=>{
+        let posicionRandom=Math.floor(Math.random()*16);
+        carta.style.order=posicionRandom;
+    });
     iniciarTemporizador=setInterval(actualizarTemporizador,1000);
     document.getElementById('segundos').innerHTML='--';
     document.getElementById('minutos').innerHTML='--';
@@ -184,7 +188,8 @@ function mostrarModal() {
     document.getElementById('segundos').innerHTML='--';
     document.getElementById('minutos').innerHTML='--';
     document.getElementById("modal").style.display = "none";
-  
+    cartas.forEach(carta => carta.removeEventListener('click',voltearCarta));
+ 
     console.log('8')
   
   }
@@ -210,10 +215,7 @@ botonEnviar.addEventListener("click", (event)=> {
   document.getElementById('segundos').innerHTML='--';
   document.getElementById('minutos').innerHTML='--';
   punto.innerHTML='00'
-  cartas.forEach(carta=>{
-    carta.classList.remove('voltear');
-    carta.addEventListener('click',voltearCarta);
-});
+
 document.getElementById("modalPuntaje").style.display = "flex";
 tablaPuntajesCalcular()
 resetear();

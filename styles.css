@@ -296,8 +296,6 @@ th{
     margin-bottom: 20px;
 }
  
-  
-  /* Estilos del botón de cerrar */
   .cerrarPuntos {
     color: #aaaaaa;
     float: right;
@@ -333,7 +331,6 @@ th{
         width: 80%;
         max-width: 400px;
         height: 300px;
-        /* margin: 150px auto 0; */
         display: flex;
         flex-wrap: wrap;
         perspective: 1000px;
@@ -534,12 +531,12 @@ th{
         background-color: #fefefe; 
         padding: 20px;
         border: 1px solid #888;
-        width: 90%; /* Cambiar el ancho a un porcentaje para que se ajuste a la pantalla */
-        height: 60%; /* Cambiar la altura a un porcentaje para que se ajuste a la pantalla */
+        width: 90%; 
+        height: 60%; 
         max-height: 50h;
       }
       
-      /* Estilos del botón de cerrar */
+
       .cerrarPuntos {
         color: #aaaaaa;
         float: right;
@@ -777,12 +774,12 @@ th{
             background-color: #fefefe; 
             padding: 20px;
             border: 1px solid #888;
-            width: 90%; /* Cambiar el ancho a un porcentaje para que se ajuste a la pantalla */
-            height: 60%; /* Cambiar la altura a un porcentaje para que se ajuste a la pantalla */
+            width: 90%; 
+            height: 60%; 
             max-height: 50h;
           }
           
-          /* Estilos del botón de cerrar */
+         
           .cerrarPuntos {
             color: #aaaaaa;
             float: right;

@@ -185,14 +185,13 @@ function mostrarModal() {
     console.log('8')
   
   }
-  // Agregar un event listener al botón de enviar
+
 
 // const botonEnviar = document.querySelector("button[type='submit']");
 botonEnviar.addEventListener("click", (event)=> {
     event.preventDefault(); // Prevenir que se envíe el formulario
     console.log('kjnhbgvfcdcgvhbjnkml,;')
 
-  // Obtener los valores de los campos de nombre y apellido
   const inputNombre = document.getElementById("nombre").value;
   const inputApellido = document.getElementById("apellido").value;
 
